@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2979FF"
-    android:orientation="vertical">
+    android:background="#00C853"
+    android:orientation="vertical"
+    android:paddingTop="48dp">
 
     <TextView
         android:id="@+id/tvBaseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="48dp"
+        android:baselineAligned="true"
+        android:text="Base" />
+
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:text="Anjas" />
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tvTipPercentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:baselineAligned="false"
+        android:text="24%" />
+
+    <TextView
+        android:id="@+id/tvTipLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:baselineAligned="false"
+        android:text="Tip" />
+
+    <TextView
+        android:id="@+id/tvTotalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:baselineAligned="false"
+        android:text="Total" />
+
 </LinearLayout>
