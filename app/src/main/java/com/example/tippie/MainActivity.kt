@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
+private const val INITIAL_BASE_VALUE = 10
 
 class MainActivity : ComponentActivity() {
     private lateinit var etBaseAmount: EditText
@@ -35,9 +36,12 @@ class MainActivity : ComponentActivity() {
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDesctiption = findViewById(R.id.tvTipDescription)
 
+        etBaseAmount.setText(INITIAL_BASE_VALUE.toString())
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercent.text = "${seekBarTip.progress}%"
+
         updateTipDescription(INITIAL_TIP_PERCENT)
+        computeTipAndTotal()
         seekBarTip.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
                 Log.i(TAG, "onProgressChanged $progress")
