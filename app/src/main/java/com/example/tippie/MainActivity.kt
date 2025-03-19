@@ -8,15 +8,6 @@ import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
@@ -27,7 +18,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var tvTipPercent: TextView
     private lateinit var tvTipAmount: TextView
     private lateinit var tvTotalAmount: TextView
-
+    private lateinit var tvTipDesctiption: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,14 +31,17 @@ class MainActivity : ComponentActivity() {
         tvTipPercent = findViewById(R.id.tvTipPercent)
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
+        tvTipDesctiption = findViewById(R.id.tvTipDescription)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercent.text = "${seekBarTip.progress}%"
+        updateTipDescription(INITIAL_TIP_PERCENT)
         seekBarTip.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
                 Log.i(TAG, "onProgressChanged $progress")
                 tvTipPercent.text = "${progress}%"
                 computeTipAndTotal()
+                updateTipDescription(progress)
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
@@ -65,6 +59,19 @@ class MainActivity : ComponentActivity() {
                 computeTipAndTotal()
             }
         })
+    }
+
+    private fun updateTipDescription(tipPercent: Int) {
+        val tipDescription = when (tipPercent) {
+            in 0..9 -> "Poor"
+            in 10..14 -> "Accaptable"
+            in 15..19 -> "Good"
+            in 20..24 -> "Great"
+            else -> "Amazing"
+        }
+        tvTipDesctiption.text = tipDescription
+
+
     }
 
     private fun computeTipAndTotal() {
