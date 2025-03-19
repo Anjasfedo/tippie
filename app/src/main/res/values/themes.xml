@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Tippie" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Tippie" parent="android:Theme.Material.Light">
+
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryDark">@color/darker_blue</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryDark</item>
+        <item name="android:colorBackground">@color/background_blue</item>
+    </style>
 </resources>
