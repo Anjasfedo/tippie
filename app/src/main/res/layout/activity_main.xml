@@ -3,52 +3,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00C853"
+    android:background="#FFFEFE"
     android:orientation="vertical"
-    android:paddingTop="48dp">
+    android:paddingTop="48dp"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvBaseLabel"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="48dp"
-        android:baselineAligned="true"
-        android:text="Base" />
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/tvBaseLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Base" />
 
-    <EditText
-        android:id="@+id/editTextNumberDecimal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal" />
+        <EditText
+            android:id="@+id/etBaseAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvTipPercentLabel"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:baselineAligned="false"
-        android:text="24%" />
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvTipLabel"
+        <TextView
+            android:id="@+id/tvTipPercentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:baselineAligned="false"
+            android:text="24%"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekBarTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:baselineAligned="false"
-        android:text="Tip" />
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvTotalLabel"
+        <TextView
+            android:id="@+id/tvTipLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:baselineAligned="false"
+            android:text="Tip" />
+
+        <TextView
+            android:id="@+id/tvTipAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="19.96" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:baselineAligned="false"
-        android:text="Total" />
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTotalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:baselineAligned="false"
+            android:text="Total" />
+
+        <TextView
+            android:id="@+id/tvTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="103.11" />
+    </LinearLayout>
 
 </LinearLayout>
